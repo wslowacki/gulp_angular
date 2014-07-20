@@ -1,0 +1,17 @@
+$primary-colour: #ee00ff;
+$secondary-colour: #beebee;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color:red;
+  font-size: 14px;
+}
+
+a {
+  color: $primary-colour;
+  text-decoration: none;
+}
