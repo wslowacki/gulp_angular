@@ -1,5 +1,6 @@
 gulp-angular.sublime-project
 gulp-angular.sublime-workspace
+/.sass-cache
 /vendor
 /dist
 /node_modules

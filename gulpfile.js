@@ -57,7 +57,8 @@ gulp.task('html', function() {
 
 gulp.task('vendor', function() {
   return gulp.src([
-    'vendor/jquery/dist/jquery.js'])
+    'vendor/jquery/dist/jquery.js',
+    'vendor/angular-latest/build/angular.js'])
     .pipe(concat('vendor.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist/vendor/'));
@@ -83,7 +84,7 @@ gulp.task('watch', function() {
 
   // Watch .scss files
   gulp.watch('src/styles/**/*.scss', ['styles']);
-
+  
   // Watch .js files
   gulp.watch('src/scripts/**/*.js', ['scripts']);
 

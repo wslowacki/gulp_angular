@@ -4,6 +4,7 @@
   "authors": [
     "wsl <wojciech.slowacki@gmail.com>"
   ],
+  "componentsDirectory": "vendor/",
   "description": "gulp bower",
   "license": "MIT",
   "private": true,
@@ -15,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "angular-latest": "~1.2.20"
   }
 }
