@@ -1,7 +1,7 @@
 {
   "node"     : true,
   "browser"  : true,
-  "es5"      : true,
+  "es5"      : false,
   "esnext"   : true,
   "bitwise"  : true,
   "camelcase": true,
@@ -21,8 +21,8 @@
   "smarttabs": true,
   "white"    : false,
   "globals"   : {
-    "$"                    : false,
-    "angular"              : false,
+    "$"                    : true,
+    "angular"              : true,
     "browser"              : false,
     "repeater"             : false,
     "element"              : false,
