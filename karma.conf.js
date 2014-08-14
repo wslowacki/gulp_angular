@@ -7,6 +7,7 @@ module.exports = function(config) {
       'vendor/jquery/dist/jquery.js',
       'vendor/angular-latest/build/angular.js',
       'vendor/angular-latest/build/angular-mocks.js',
+      'src/**/*.module.js',
       'src/**/*.js'
     ],
     /**

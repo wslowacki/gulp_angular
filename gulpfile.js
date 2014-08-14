@@ -3,6 +3,7 @@ var gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   minifycss = require('gulp-minify-css'),
   jshint = require('gulp-jshint'),
+  ngAnnotate = require('gulp-ng-annotate'),
   uglify = require('gulp-uglify'),
   imagemin = require('gulp-imagemin'),
   rename = require('gulp-rename'),
@@ -55,7 +56,7 @@ gulp.task('tests', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src(['src/scripts/**/*.js', '!src/**/*.spec.js'])
+  return gulp.src(['src/scripts/**/*.module.js', 'src/scripts/**/*.js', '!src/**/*.spec.js'])
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(concat('main.js'))
@@ -63,7 +64,8 @@ gulp.task('scripts', function() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(uglify())
+    .pipe(ngAnnotate())
+  // .pipe(uglify())
     .pipe(gulp.dest('dist/scripts'))
     .pipe(livereload(server));
 
