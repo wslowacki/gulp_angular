@@ -58,14 +58,14 @@ gulp.task('tests', function() {
 gulp.task('scripts', function() {
   return gulp.src(['src/scripts/**/*.module.js', 'src/scripts/**/*.js', '!src/**/*.spec.js'])
     .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('jshint-stylish'))
     .pipe(concat('main.js'))
     .pipe(gulp.dest('dist/scripts'))
     .pipe(rename({
       suffix: '.min'
     }))
     .pipe(ngAnnotate())
-  // .pipe(uglify())
+    .pipe(uglify())
     .pipe(gulp.dest('dist/scripts'))
     .pipe(livereload(server));
 
