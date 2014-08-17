@@ -4,6 +4,10 @@ function mathUtils() {
   /*jshint validthis: true */
   var _root = this;
 
+  _root.isNumber = function isNumber(number) {
+    return typeof number === 'number';
+  };
+
   _root.isInteger = function isInteger(number) {
     return _root.isNumber(number) && (Math.round(number) === number);
   };
@@ -16,9 +20,6 @@ function mathUtils() {
     return _root.isInteger(number) && _root.isPositive(number);
   };
 
-  _root.isNumber = function isNumber(number) {
-    return typeof number === 'number';
-  };
 }
 
 angular.module('utils.math').service('mathUtils', mathUtils);
