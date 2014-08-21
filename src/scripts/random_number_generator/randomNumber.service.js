@@ -5,24 +5,22 @@ function randomNumber(mathUtils) {
   var _root = this;
 
   /**
-   * Generates an integer between two values
+   * Generates an integer between equal or higher to minValue and equal or lower to maxValue
+   * @param  {Number (Int)} minimumValue 
+   * @param  {Number (Int)} maximumValue 
+   * @return {Number (Int)}              
    */
-  function generateRandomNumber(minimumValue, maximumValue) {
+  _root.generate = function generateRandomNumber(minimumValue, maximumValue) {
     var generatedNumber;
-    generatedNumber = Math.floor(Math.random() * (maximumValue - minimumValue)) + minimumValue;
-    return generatedNumber;
-  }
-
-  _root.generate = function randomNumberWrapper(minimumValue, maximumValue) {
-    var generatedNumber;
-    try {
-      if (!mathUtils.isInteger(minimumValue) || !mathUtils.isInteger(maximumValue)) {
-        throw 'Number generator parameters are not integers';
+    if (!mathUtils.isInteger(minimumValue) || !mathUtils.isInteger(maximumValue)) {
+      throw new Error('mathUtils : generateRandomNumber() : Number generator parameters are not integers');
+    } else {
+      if(minimumValue > maximumValue) {
+        //this swaps the values of min/max variables
+        minimumValue = [maximumValue, maximumValue = minimumValue][0];
       }
-      generatedNumber = generateRandomNumber(minimumValue, maximumValue);
+      generatedNumber = Math.floor(Math.random() * (maximumValue - minimumValue)) + minimumValue;
       return generatedNumber;
-    } catch (e) {
-      console.error(e);
     }
   };
 }
