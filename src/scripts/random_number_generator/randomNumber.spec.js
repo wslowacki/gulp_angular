@@ -9,9 +9,11 @@ describe("Checking if number generator returns correct values", function() {
     expect(function() {
       randomNumber.generate();
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(33, undefined);
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(undefined, 33);
     }).toThrow();
@@ -21,26 +23,41 @@ describe("Checking if number generator returns correct values", function() {
     expect(function() {
       randomNumber.generate('string', 33);
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(33, 'string');
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(33, []);
     }).toThrow();
+
     expect(function() {
       randomNumber.generate([], 33);
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(33, {});
     }).toThrow();
+
     expect(function() {
       randomNumber.generate({}, 33);
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(33, null);
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(null, 33);
+    }).toThrow();
+
+    expect(function() {
+      randomNumber.generate(33, true);
+    }).toThrow();
+
+    expect(function() {
+      randomNumber.generate(true, 33);
     }).toThrow();
   });
 
@@ -48,6 +65,7 @@ describe("Checking if number generator returns correct values", function() {
     expect(function() {
       randomNumber.generate(33, 1.234);
     }).toThrow();
+
     expect(function() {
       randomNumber.generate(45.1, 43);
     }).toThrow();
@@ -55,11 +73,16 @@ describe("Checking if number generator returns correct values", function() {
 
   it('Should generate a value not lower than minimum and not higher than maximum', function() {
     var minValue = 10,
-        maxValue = 11,
-        result;
+      maxValue = 11,
+      result;
     result = randomNumber.generate(minValue, maxValue);
 
+    expect(function() {
+      randomNumber.generate(minValue, maxValue);
+    }).not.toThrow();
+
     expect(result).not.toBeLessThan(minValue);
+
     expect(result).not.toBeGreaterThan(maxValue);
   });
 });
