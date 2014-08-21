@@ -87,20 +87,3 @@ describe("Checking if number generator returns correct values", function() {
   });
 });
 
-xdescribe("Checking if number generator invokes itself if max < min", function() {
-  var randomNumber, minimumValue, maximumValue;
-  beforeEach(module('randomNumberGenerator'));
-  beforeEach(inject(function(_randomNumber_) {
-    randomNumber = _randomNumber_;
-    minimumValue = 30;
-    maximumValue = 10;
-    spyOn(randomNumber, 'generate');
-    
-  }));
-
-  it('Should call itself with values reversed if max < min', function() {
-    var result = randomNumber.generate(minimumValue, maximumValue);
-    // console.log(randomNumber.generate.calls[1].args);
-    expect(randomNumber.generate.calls.length).toEqual(2);
-  });
-});
