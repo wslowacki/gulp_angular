@@ -11,15 +11,12 @@ function randomNumber(mathUtils) {
    * @return {Number (Int)}              
    */
   _root.generate = function generateRandomNumber(minimumValue, maximumValue) {
-    var generatedNumber;
+    var generatedNumber, valuesArray;
     if (!mathUtils.isInteger(minimumValue) || !mathUtils.isInteger(maximumValue)) {
       throw new Error('mathUtils : generateRandomNumber() : Number generator parameters are not integers');
     } else {
-      if(minimumValue > maximumValue) {
-        //this swaps the values of min/max variables
-        minimumValue = [maximumValue, maximumValue = minimumValue][0];
-      }
-      generatedNumber = Math.floor(Math.random() * (maximumValue - minimumValue)) + minimumValue;
+      valuesArray = [minimumValue, maximumValue].sort();
+      generatedNumber = Math.floor(Math.random() * (valuesArray[1] - valuesArray[0])) + valuesArray[0];
       return generatedNumber;
     }
   };

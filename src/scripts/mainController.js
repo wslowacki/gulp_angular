@@ -6,8 +6,8 @@ function mainController(dice, randomNumber) {
   _root.rollResult = null;
 
   _root.roll = function rollDice() {
-    _root.rollResult = _root.numberOfDice ? dice.rollMany(_root.numberOfDice, _root.diceType) : dice.roll(_root.diceType);
-    // _root.rollResult = randomNumber.generate();
+    // _root.rollResult = _root.numberOfDice ? dice.rollMany(_root.numberOfDice, _root.diceType) : dice.roll(_root.diceType);
+    _root.rollResult = randomNumber.generate(30, 10);
   };
 
 }

@@ -19,7 +19,7 @@ function dice(mathUtils, randomNumber) {
     if (!mathUtils.isPositiveInteger(quantity) || !mathUtils.isPositiveInteger(sides)) {
       throw new Error('dice : rollManyDice() : Parameters are not positive integers');
     } else {
-      for (var i = 0; i < quantity; i++) {
+      for (var i =0; i < quantity; i++) {
         diceRollResult = diceRollResult + _root.roll(sides);
       }
       return diceRollResult;

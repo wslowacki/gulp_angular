@@ -19,7 +19,7 @@ var gulp = require('gulp'),
 
 // test files
 var testFiles = [
-  'src/**/*.spec.js'
+  'src/tests/**/*.js'
 ];
 
 // Styles
@@ -56,7 +56,7 @@ gulp.task('tests', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-  return gulp.src(['src/scripts/**/*.module.js', 'src/scripts/**/*.js', '!src/**/*.spec.js'])
+  return gulp.src(['src/scripts/**/*.module.js', 'src/scripts/**/*.js'])
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(concat('main.js'))
@@ -115,7 +115,7 @@ gulp.task('watch', function() {
   gulp.watch('src/styles/**/*.scss', ['styles']);
 
   // Watch .js files
-  gulp.watch('src/scripts/**/*.js', ['tests', 'scripts']);
+  gulp.watch('src/**/*.js', ['tests', 'scripts']);
 
   // Watch .html files
   gulp.watch('src/*.html', ['html']);

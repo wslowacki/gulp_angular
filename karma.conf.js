@@ -2,18 +2,22 @@ module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
-    plugins: ['karma-jasmine', 'karma-firefox-launcher', 'karma-chrome-launcher', 'karma-phantomjs-launcher', 'karma-coffee-preprocessor'],
+    plugins: ['karma-jasmine', 'karma-firefox-launcher', 'karma-chrome-launcher', 'karma-phantomjs-launcher', 'karma-coffee-preprocessor', 'karma-coverage'],
     files: [
       'vendor/jquery/dist/jquery.js',
       'vendor/angular-latest/build/angular.js',
       'vendor/angular-latest/build/angular-mocks.js',
-      'src/**/*.module.js',
-      'src/**/*.js'
+      'src/scripts/**/*.module.js',
+      'src/scripts/**/*.js',
+      'src/tests/**/*.js'
     ],
+    preprocessors: {
+      '**/src/scripts/**/*.js': 'coverage'
+    },
     /**
      * How to report, by default.
      */
-    reporters: 'progress',
+    reporters: ['progress', 'coverage'],
     colors: true,
     /**
      * On which port should the browser connect, on which port is the test runner

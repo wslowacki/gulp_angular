@@ -4,3 +4,4 @@ gulp-angular.sublime-workspace
 /vendor
 /dist
 /node_modules
+/coverage
