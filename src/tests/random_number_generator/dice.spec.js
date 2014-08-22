@@ -175,7 +175,7 @@ describe("Checking if multiple dice roll calls dice roll correct number of times
   }));
 
   it('Should call dice roll a proper number of times', function() {
-    expect(dice.roll.calls.length).toEqual(rollQuantity);
+    expect(dice.roll.calls.count()).toEqual(rollQuantity);
   });
 });
 
@@ -191,6 +191,6 @@ describe("Checking if multiple dice roll calls dice roll witch correct parameter
   }));
 
   it('Should call dice roll a proper dice sides parameter', function() {
-    expect(dice.roll.calls[0].args[0]).toEqual(diceSides);
+    expect(dice.roll.calls.argsFor(0)).toEqual([diceSides]);
   });
 })
