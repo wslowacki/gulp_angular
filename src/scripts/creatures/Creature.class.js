@@ -10,11 +10,7 @@
         if (!stats || typeof stats !== 'object') {
           throw new Error('Creature.setStats : invalid perameter', stats);
         } else {
-          for (var key in stats) {
-            if (stats.hasOwnProperty(key)) {
-              statistics[key] = stats[key];
-            }
-          }
+          angular.extend(statistics, stats);
         }
       };
 

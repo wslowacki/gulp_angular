@@ -9,13 +9,6 @@
 
 <body ng-app="App">
 
-<div id="container" ng-controller="mainController as thrower">
-  <label>Liczba kości : <input type="number" ng-model="thrower.numberOfDice" /></label>
-  <label>Liczba boków kości : <input type="number" ng-model="thrower.diceType" /></label>
-  <p><button ng-click="thrower.roll()">Rzuć!</button></p>
-  <p>Wynik: <span ng-bind="thrower.rollResult"></span></p>
-</div>
-
 <script type="text/javascript" src="vendor/vendor.js"></script>
 <script type="text/javascript" src="scripts/main.min.js"></script>
 </body>
